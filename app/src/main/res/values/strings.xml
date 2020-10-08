@@ -1,0 +1,89 @@
+<resources>
+    <string name="app_name">Supple</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Mall</string>
+    <string name="title_notifications">Thông báo</string>
+    <string name="title_profile">Cá nhân</string>
+    <!--    <string name="facebook_app_id">332242600828155</string>-->
+    <!--    <string name="fb_login_protocol_scheme">fb332242600828155</string>-->
+
+    <!--    Slider-->
+    <string name="slider_success_order">GIAO HÀNG NHANH CHÓNG</string>
+    <string name="slider_description">Waka cung cấp cho người dùng không chỉ đầy đủ những mặt hàng mà còn đảm bảo chất lượng luôn đi đầu so với thị trường.</string>
+    <string name="slider_btn_discover">KHÁM PHÁ NGAY</string>
+
+    <!--    Login-->
+    <string name="acti_login_welcome">Welcome Back!</string>
+    <string name="acti_login_tvUsername">Tên đăng nhập</string>
+    <string name="acti_login_tvPassword">Mật khẩu</string>
+    <string name="acti_login_btnSignIn">Đăng nhập</string>
+    <string name="acti_login_forgetPass">Quên mật khẩu?</string>
+    <string name="acti_login_noAccount">Chưa có tài khoản?</string>
+    <string name="acti_login_signUp">Đăng kí ngay</string>
+    <string name="acti_login_messSignInSucess">Vui lòng nhập đầy đủ thông tin</string>
+    <string name="lgactivity_loginsuccess">Đăng nhập thành công</string>
+    <string name="acti_login_warnEmpty">Vui lòng nhập đầy đủ thông tin</string>
+    <string name="acti_login_wronguserpass">Tên tài khoản hoặc mật khẩu không tồn tại</string>
+    <string name="acti_login_successlogin">Đăng nhập thành công</string>
+
+    <!--SignUpActivity-->
+    <string name="acti_signup_username">Tên đăng nhập</string>
+    <string name="acti_signup_fullname">Họ và tên</string>
+    <string name="acti_signup_address">Địa chỉ</string>
+    <string name="acti_signup_phone">Số điện thoại</string>
+    <string name="acti_signup_email">Email</string>
+    <string name="acti_signup_pass">Mật khẩu</string>
+    <string name="acti_signup_repass">Nhập lại mật khẩu</string>
+    <string name="acti_signup_emptyUser">Vui lòng nhập tên đăng nhập</string>
+    <string name="acti_signup_emptyfullname">Vui lòng nhập họ tên</string>
+    <string name="acti_signup_emptyAdress">Vui lòng nhập địa chỉ</string>
+    <string name="acti_signup_emptyPhone">Số điện thoại phải có 10 ký tự</string>
+    <string name="acti_signup_warnLengthPass">Mật khẩu phải trên 8 ký tự</string>
+    <string name="acti_signup_warnCheckRepass">Mật khẩu không trùng</string>
+    <string name="acti_signup_successSignUp">Đăng ký thành công</string>
+    <string name="acti_signup_warnCheckUser">Tên đăng nhập này đã có người sử dụng</string>
+    <string name="acti_signup_warnPhone">Vui lòng nhập SĐT là số</string>
+
+    <!--    HomeFragment-->
+    <string name="home_whey">WHEY</string>
+    <string name="home_mass">MASS</string>
+    <string name="home_bcaa">BCAA</string>
+
+    <!--Profile-->
+    <string name="fra_profile_yourorders">Đơn hàng của bạn</string>
+    <string name="fra_profile_changepass">Đổi mật khẩu</string>
+    <string name="fra_profile_sharefacebook">Chia sẻ lên facebook</string>
+    <string name="fra_profile_yourvoucher">Quà tặng</string>
+    <string name="fra_profile_shield">Bảo mật và điều khoản</string>
+    <string name="fra_profile_question">Câu hỏi thường gặp</string>
+    <string name="fra_profile_signout">Đăng xuất</string>
+    <string name="frg_profile_title">Cá nhân</string>
+    <string name="frg_profile_name">Nguyễn Đức Vượng</string>
+    <string name="frg_profile_phone">0767002143</string>
+    <string name="frg_profile_edit">Edit Profile</string>
+
+
+    <!--CartActivity-->
+    <string name="acti_cart_tv_thanhtien">Thành tiền</string>
+    <string name="acti_cart_title">Giỏ hàng</string>
+    <string name="acti_cart_tv_sumprice">29.990.000</string>
+    <string name="acti_cart_tv_freeship">Miễn phí vận chuyển</string>
+    <string name="acti_cart_btnPayment">Thanh toán</string>
+    <string name="acti_cart_mesWarning">Vui lòng chọn ít nhất một sản phẩm để thanh toán</string>
+
+
+    <!--Success Order Activity-->
+    <string name="acti_success_order">Đặt hàng thành công</string>
+    <string name="acti_success_order_description">Đơn hang của bạn đã được đặt thành công. Vui lòng kiểm tra Đơn hàng của tôi để biết thêm chi tiết !</string>
+    <string name="acti_cart_delproduct">Xóa sản phẩm thành công</string>
+    <string name="acti_cart_warning">Số lượng phải lớn hơn 0</string>
+    <string name="acti_payment_successVoucher">Mã khuyến mại đã được áp dụng</string>
+    <string name="acti_payment_warningVoucher">Mã khuyến mại không tồn tại</string>
+
+    <!--    Fragment BCAA-->
+    <string name="frg_BCAA_spinner_arrange">Sắp xếp sản phẩm</string>
+    <string name="frg_BCAA_spinner_lowtohigh">Giá: thấp -> cao</string>
+    <string name="frg_BCAA_spinner_hightolow">Giá: cao -> thấp</string>
+    <string name="frg_BCAA_accessories">BCAA</string>
+
+</resources>
