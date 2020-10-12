@@ -1,6 +1,7 @@
 package com.example.supple.fragment;
 
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -19,6 +20,8 @@ import androidx.fragment.app.Fragment;
 import com.androidnetworking.interceptors.HttpLoggingInterceptor;
 import com.example.supple.R;
 import com.example.supple.activity.LoginActivity;
+import com.example.supple.activity.ProductDetailsActivity;
+import com.example.supple.activity.ProfileDetailActivity;
 import com.example.supple.model.User;
 import com.example.supple.service.UserService;
 import com.google.gson.Gson;
@@ -46,14 +49,14 @@ public class ProfileFragment extends Fragment {
     private LinearLayout llShareFacebook;
     private LinearLayout llMyVoucher;
     private LinearLayout llSignOut;
-    String passPattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$";
+    String passPattern = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$";
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
         initView(view);
         getInformationUser();
-
         llChangePass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,12 +66,10 @@ public class ProfileFragment extends Fragment {
                 mBuilder.setCancelable(true);
                 AlertDialog dialog = mBuilder.create();
                 dialog.show();
-
                 EditText edtPasswordChange;
                 EditText edtRePasswordChange;
                 Button btnSaveNewPassword;
                 Button btnCancelForgetPass;
-
                 edtPasswordChange = mView.findViewById(R.id.edtPasswordChange);
                 edtRePasswordChange = mView.findViewById(R.id.edtRePasswordChange);
                 btnSaveNewPassword = mView.findViewById(R.id.btnSaveNewPasswordChange);
@@ -79,22 +80,22 @@ public class ProfileFragment extends Fragment {
                     public void onClick(View v) {
                         String pass = edtPasswordChange.getText().toString();
                         String repass = edtRePasswordChange.getText().toString();
-                        String id=userList.get(0).getId();
-                        String username=userList.get(0).getUsername();
-                        if (pass.isEmpty()){
+                        String id = userList.get(0).getId();
+                        String username = userList.get(0).getUsername();
+                        if (pass.isEmpty()) {
                             edtPasswordChange.setError("Bạn không được để trống");
                             edtPasswordChange.requestFocus();
-                        }else if (repass.isEmpty()){
+                        } else if (repass.isEmpty()) {
                             edtRePasswordChange.setError("Bạn không được để trống");
                             edtRePasswordChange.requestFocus();
-                        }else if (!pass.matches(passPattern)){
+                        } else if (!pass.matches(passPattern)) {
                             edtPasswordChange.setError("Mật khẩu ít nhất phải 8 ký tự gồm tối thiểu 1 chữ hoa, 1 chữ thường, 1 số và 1 ký tự đặc biệt");
                             edtPasswordChange.requestFocus();
-                        }else if (!(pass.equals(repass))){
+                        } else if (!(pass.equals(repass))) {
                             edtRePasswordChange.setError("Mật khẩu không trùng khớp");
                             edtRePasswordChange.requestFocus();
-                        }else {
-                            changePass(id,username,pass);
+                        } else {
+                            changePass(id, username, pass);
                             dialog.dismiss();
                         }
                     }
@@ -107,18 +108,39 @@ public class ProfileFragment extends Fragment {
                 });
             }
         });
+        btnEditProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String username = userList.get(0).getUsername();
+                String password = userList.get(0).getPassword();
+                String address = userList.get(0).getAddress();
+                String email = userList.get(0).getEmail();
+                String fullname = userList.get(0).getFullname();
+                String phone = userList.get(0).getPhone();
+                Intent intent = new Intent(getContext(), ProfileDetailActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("username", username);
+                bundle.putString("password", password);
+                bundle.putString("address", address);
+                bundle.putString("email", email);
+                bundle.putString("fullname", fullname);
+                bundle.putString("phone", phone);
+                intent.putExtra("dataUser", bundle);
+                startActivity(intent);
+            }
+        });
         return view;
     }
 
     public void initView(View view) {
-        tvFullName = (TextView) view.findViewById(R.id.tvFullName);
-        tvPhoneNumber = (TextView) view.findViewById(R.id.tvPhoneNumber);
-        btnEditProfile = (Button) view.findViewById(R.id.btnEditProfile);
-        llMyOrders = (LinearLayout) view.findViewById(R.id.llMyOrders);
-        llChangePass = (LinearLayout) view.findViewById(R.id.llChangePass);
-        llShareFacebook = (LinearLayout) view.findViewById(R.id.llShareFacebook);
-        llMyVoucher = (LinearLayout) view.findViewById(R.id.llMyVoucher);
-        llSignOut = (LinearLayout) view.findViewById(R.id.llSignOut);
+        tvFullName = view.findViewById(R.id.tvFullName);
+        tvPhoneNumber = view.findViewById(R.id.tvPhoneNumber);
+        btnEditProfile = view.findViewById(R.id.btnEditProfile);
+        llMyOrders = view.findViewById(R.id.llMyOrders);
+        llChangePass = view.findViewById(R.id.llChangePass);
+        llShareFacebook = view.findViewById(R.id.llShareFacebook);
+        llMyVoucher = view.findViewById(R.id.llMyVoucher);
+        llSignOut = view.findViewById(R.id.llSignOut);
     }
 
     private void getInformationUser() {
